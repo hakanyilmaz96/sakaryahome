@@ -475,3 +475,9 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+*.db-shm
+*.db-wal
+*API/skinet.db-shm
+*API/skinet.db-wal
+*Infrastructure/Data/Migrations/20231113202030_InitialCreate.cs
+*Infrastructure/Data/Migrations/20231113202030_InitialCreate.Designer.cs
