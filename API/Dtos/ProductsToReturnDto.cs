@@ -3,6 +3,7 @@ namespace API.Dtos
     // Kullanıcıya döndürdüğümüz product'ın özelliklerini daha düzenli hale getirmek için
     public class ProductsToReturnDto
     {
+
         public int Id { get; set; }
         public string Name {get; set;}
         public string Description {get; set;}
