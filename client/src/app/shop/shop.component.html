@@ -2,7 +2,7 @@
     <div class="row">
         <section class="col-3">
             <h5 class="text-warning ms-3 my-4">Sort</h5>
-            <select class="form-select mb-4" (change)="onSortSelected($event)">
+            <select class="form-select mb-4" (change)="onSortSelected($event)" style="cursor: pointer;">
                 <option *ngFor="let sort of sortOptions" [value]="sort.value">
                     {{sort.name}}
                 </option>
@@ -10,13 +10,13 @@
             </select>
             <h5 class="text-warning ms-3 my-3">Brands</h5>
             <ul class="list-group">
-                <li class="list-group-item" *ngFor="let brand of brands" [class.active]="brand.id === shopParams.brandId"
+                <li class="list-group-item" style="cursor: pointer;" *ngFor="let brand of brands" [class.active]="brand.id === shopParams.brandId"
                     [value]="brand.id" (click)="onBrandSelected(brand.id)">{{brand.name}}</li>
 
             </ul>
             <h5 class="text-warning ms-3 my-3">Types</h5>
             <ul class="list-group">
-                <li class="list-group-item" *ngFor="let type of types" [class.active]="type.id === shopParams.typeId"
+                <li class="list-group-item" style="cursor: pointer;" *ngFor="let type of types" [class.active]="type.id === shopParams.typeId"
                     [value]="type.id" (click)="onTypeSelected(type.id)">{{type.name}}</li>
 
             </ul>
