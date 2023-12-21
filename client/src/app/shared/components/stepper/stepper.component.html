@@ -1,12 +1,12 @@
 <div class="container">
-    <ul class="nav nav-pills nav-justified">
+    <ul class="nav nav-pills nav-justified mt-3">
         <li class="nav-item" *ngFor="let step of steps; let i = index">
             <div class="d-grid">
                 <button 
                     (click)="onClick(i)"
                     [class.active]="selectedIndex === i"
                     class="nav-link py-3 text-uppercase fw-bold">
-                    {{step.label}}
+                    {{step.label}}:{{step.completed}}
                 </button>
             </div>
         </li>
