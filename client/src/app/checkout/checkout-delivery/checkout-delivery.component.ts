@@ -10,6 +10,9 @@ import { CheckoutService } from '../checkout.service';
   styleUrls: ['./checkout-delivery.component.scss']
 })
 export class CheckoutDeliveryComponent implements OnInit {
+getShippingDistance() {
+throw new Error('Method not implemented.');
+}
   @Input() checkoutForm?: FormGroup;
   deliveryMethods: DeliveryMethod[] = [];
 
@@ -22,7 +25,10 @@ export class CheckoutDeliveryComponent implements OnInit {
   }
 
   setShippingPrice(deliveryMethod: DeliveryMethod) {
+
     this.basketService.setShippingPrice(deliveryMethod);
   }
+
+  
 
 }

@@ -15,10 +15,10 @@
   },
   {
     "Id": 3,
-    "ShortName": "UPS3",
-    "Description": "Slower but cheap",
+    "ShortName": "Logistic Service",
+    "Description": "Price is based on the products in basket and your shipping distance.",
     "DeliveryTime": "5-10 Days",
-    "Price": 2
+    "Price": 0.15
   },
   {
     "Id": 4,

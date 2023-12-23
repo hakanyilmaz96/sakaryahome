@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using API.Enums;
 
 namespace API.Dtos
 {
@@ -21,5 +22,6 @@ namespace API.Dtos
 
         [Required]
         public string Zipcode { get; set; }
+
     }
 }

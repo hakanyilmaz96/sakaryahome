@@ -9,6 +9,8 @@ namespace Core.Entities
         public string PictureUrl { get; set; }
         public string Brand { get; set; }
         public string Type { get; set; }
+        public bool Logistic {get; set;}
+        public int Desi {get; set;}
 
     }
 }

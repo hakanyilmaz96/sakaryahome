@@ -6,4 +6,7 @@ export interface Product {
     pictureUrl: string;
     productType: string;
     productBrand: string;
+    desi: number;
+    logistic: boolean;
+
   }

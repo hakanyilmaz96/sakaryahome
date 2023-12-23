@@ -11,6 +11,8 @@ namespace API.Dtos
         public string PictureUrl {get; set;}
         public string ProductType {get; set;}
         public string ProductBrand {get; set;}
+        public int Desi {get; set;}
+        public bool Logistic {get; set;}
    
     }
 }

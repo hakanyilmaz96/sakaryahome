@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.Data.Migrations
 {
     [DbContext(typeof(StoreContext))]
-    [Migration("20231217220231_OrderEntityAdded")]
-    partial class OrderEntityAdded
+    [Migration("20231223130620_SomeSpecAdded")]
+    partial class SomeSpecAdded
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -106,6 +106,12 @@ namespace Infrastructure.Data.Migrations
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("TEXT");
+
+                    b.Property<int>("Desi")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<bool>("Logistic")
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("Name")
                         .IsRequired()

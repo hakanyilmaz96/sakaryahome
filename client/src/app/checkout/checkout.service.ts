@@ -15,6 +15,7 @@ export class CheckoutService {
 
   createOrder(order: OrderToCreate) {
     return this.http.post<Order>(this.baseUrl + 'orders', order);
+    
   }
 
   getDeliveryMethods() {
@@ -24,4 +25,6 @@ export class CheckoutService {
       })
     )
   }
+
+  
 }

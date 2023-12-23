@@ -5,6 +5,9 @@ import { environment } from 'src/environments/environment';
 import { Basket, BasketItem, BasketTotals } from '../shared/models/basket';
 import { DeliveryMethod } from '../shared/models/deliveryMethod';
 import { Product } from '../shared/models/product';
+import { CheckoutDeliveryService } from '../checkout/checkout-delivery/checkout-delivery.component.service';
+import { AccountService } from '../account/account.service';
+import { Address } from '../shared/models/user';
 
 @Injectable({
   providedIn: 'root'
@@ -16,12 +19,29 @@ export class BasketService {
   private basketTotalSource = new BehaviorSubject<BasketTotals | null>(null);
   basketTotalSource$ = this.basketTotalSource.asObservable();
   shipping = 0;
+  address = this.getUserAddress();
 
-  constructor(private http: HttpClient) { }
+
+  constructor(private http: HttpClient, private checkoutDeliveryService: CheckoutDeliveryService,  private accountService: AccountService) { }
 
   setShippingPrice(deliveryMethod: DeliveryMethod) {
-    this.shipping = deliveryMethod.price;
-    this.calculateTotals();
+    if (deliveryMethod.id === 3) {
+      this.accountService.getUserAddress().subscribe(address => {
+        if (address) {
+          this.checkoutDeliveryService.getShippingDistance(address).subscribe(distance => {
+            this.shipping = deliveryMethod.price * distance;
+            this.calculateTotals();
+          });
+        }
+      });
+    } else {
+      this.shipping = deliveryMethod.price;
+      this.calculateTotals();
+    }
+  }
+
+  getUserAddress() {
+    return this.http.get<Address>(this.baseUrl + 'account/address');
   }
 
   getBasket(id: string) {

@@ -104,6 +104,12 @@ namespace Infrastructure.Data.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<int>("Desi")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<bool>("Logistic")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(100)

@@ -6,11 +6,25 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Infrastructure.Data.Migrations
 {
     /// <inheritdoc />
-    public partial class OrderEntityAdded : Migration
+    public partial class SomeSpecAdded : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.AddColumn<int>(
+                name: "Desi",
+                table: "Products",
+                type: "INTEGER",
+                nullable: false,
+                defaultValue: 0);
+
+            migrationBuilder.AddColumn<bool>(
+                name: "Logistic",
+                table: "Products",
+                type: "INTEGER",
+                nullable: false,
+                defaultValue: false);
+
             migrationBuilder.CreateTable(
                 name: "DeliveryMethods",
                 columns: table => new
@@ -101,6 +115,14 @@ namespace Infrastructure.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "DeliveryMethods");
+
+            migrationBuilder.DropColumn(
+                name: "Desi",
+                table: "Products");
+
+            migrationBuilder.DropColumn(
+                name: "Logistic",
+                table: "Products");
         }
     }
 }
