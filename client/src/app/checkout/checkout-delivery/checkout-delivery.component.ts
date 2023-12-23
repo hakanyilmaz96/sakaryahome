@@ -25,8 +25,9 @@ throw new Error('Method not implemented.');
   }
 
   setShippingPrice(deliveryMethod: DeliveryMethod) {
-
+    
     this.basketService.setShippingPrice(deliveryMethod);
+
   }
 
   

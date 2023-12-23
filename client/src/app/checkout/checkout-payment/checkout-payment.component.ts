@@ -36,11 +36,15 @@ export class CheckoutPaymentComponent {
   private getOrderToCreate(basket: Basket) {
     const deliveryMethodId = this.checkoutForm?.get('deliveryForm')?.get('deliveryMethod')?.value;
     const shipToAddress = this.checkoutForm?.get('addressForm')?.value as Address;
+    const shippingPrice = this.basketService.setShippingPrice(deliveryMethodId)
+    
     if (!deliveryMethodId || !shipToAddress) return;
+    
     return {
       basketId: basket.id,
       deliveryMethodId: deliveryMethodId,
-      shipToAddress: shipToAddress
+      shipToAddress: shipToAddress,
+      shippingPrice: shippingPrice
     }
   }
 }
