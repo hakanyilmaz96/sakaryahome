@@ -15,10 +15,11 @@ export interface Order {
     deliveryMethod: string;
     orderItems: OrderItem[];
     status: string;
-    shippingPrice: number;
     subtotal: number;
+    shippingPrice: number;
     total: number;
   }
+  
 
 export interface OrderItem {
     productId: number;

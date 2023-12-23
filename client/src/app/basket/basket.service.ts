@@ -5,7 +5,6 @@ import { environment } from 'src/environments/environment';
 import { Basket, BasketItem, BasketTotals } from '../shared/models/basket';
 import { DeliveryMethod } from '../shared/models/deliveryMethod';
 import { Product } from '../shared/models/product';
-import { CheckoutDeliveryService } from '../checkout/checkout-delivery/checkout-delivery.component.service';
 import { AccountService } from '../account/account.service';
 import { Address } from '../shared/models/user';
 
@@ -22,13 +21,17 @@ export class BasketService {
   address = this.getUserAddress();
 
 
-  constructor(private http: HttpClient, private checkoutDeliveryService: CheckoutDeliveryService,  private accountService: AccountService) { }
+  constructor(private http: HttpClient,  private accountService: AccountService) { }
 
+  getShippingDistance(address: Address){
+    return this.http.get<number>(`${this.baseUrl}shipping/citydistance/${address.city}`);
+  }
+  
   setShippingPrice(deliveryMethod: DeliveryMethod) {
     if (deliveryMethod.id === 3) {
       this.accountService.getUserAddress().subscribe(address => {
         if (address) {
-          this.checkoutDeliveryService.getShippingDistance(address).subscribe(distance => {
+          this.getShippingDistance(address).subscribe(distance => {
             this.shipping = deliveryMethod.price * distance;
             this.calculateTotals();
           });

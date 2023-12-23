@@ -7,7 +7,7 @@ namespace API.Enums
 {
     public enum CityDistance
     {
-        Istanbul = 0,
+        Istanbul = 50,
         Ankara = 450,
         Izmir = 330,
         Adana = 920,

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Order } from '../shared/models/order';
 import { OrdersService } from './orders.service';
+import { DeliveryMethod } from '../shared/models/deliveryMethod';
 
 @Component({
   selector: 'app-orders',
@@ -21,4 +22,6 @@ export class OrdersComponent implements OnInit {
       next: orders => this.orders = orders
     })
   }
+
+
 }
