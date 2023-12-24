@@ -4,7 +4,7 @@
             <h6 class="text-muted" > 
                 <strong style="color:green;">Following are the delivery methods you can choose.</strong>
             </h6>
-            <br  />
+            
         </div>
         <!-- Eğer logisticOptionDisabled false ise, tüm yöntemleri göster -->
         <ng-container *ngIf="!logisticOptionDisabled">
@@ -24,6 +24,11 @@
         </ng-container>
         <!-- Eğer logisticOptionDisabled true ise ve yöntemin id'si 3 ise, sadece bu yöntemi göster -->
         <ng-container *ngIf="logisticOptionDisabled">
+            <div>
+                <h6 class="text-muted" > 
+                    <p style="color:rgb(255, 85, 6);">You can only choose "Logistic" because you exceeded the maximum or there are items in the cart that require logistics</p>
+                </h6>
+            </div>
             <div class="col-6 form-group" *ngFor="let method of deliveryMethods">
                 <input *ngIf="method.id === 3" type="radio"
                     id="{{method.id}}"
