@@ -29,10 +29,10 @@ export class OrdersService {
           })
         )
       ),
-      toArray() 
+      toArray(),
+      map(orders => orders.sort((a, b) => b.id - a.id))
     );
   }
-  
 
   getOrderDetailed(id: number): Observable<Order> {
     return this.http.get<Order>(this.baseUrl + 'orders/' + id).pipe(
@@ -48,7 +48,6 @@ export class OrdersService {
     );
   }
   
-
   getShippingDistance(address: Address){
     return this.http.get<number>(`${this.baseUrl}shipping/citydistance/${address.city}`);
   }
@@ -58,7 +57,6 @@ export class OrdersService {
     order.subtotal = subtotal;
     order.total = order.subtotal + order.shippingPrice; 
   }
-
   
 }
 
