@@ -18,7 +18,8 @@
                 <label for="{{method.id}}" class="form-check-label ms-2 mb-3">
                     <strong>{{method.shortName}} - {{method.price | currency}}</strong>
                     <br />
-                    <span class="label-description">{{method.description}}</span>
+                    <span class="label-description">{{method.description}}</span><br>
+                    <span class="label-description">{{method.deliveryTime}}</span>
                 </label>
             </div>
         </ng-container>
@@ -39,8 +40,11 @@
                 <label *ngIf="method.id === 3" for="{{method.id}}" class="form-check-label ms-2 mb-3">
                     <strong>{{method.shortName}} - {{method.price | currency}}</strong>
                     <br />
-                    <span class="label-description">{{method.description}}</span>
+                    <span class="label-description">{{method.description}}</span><br>
+                    <span class="label-description">{{method.deliveryTime}}</span>
+                    
                 </label>
+                
             </div>
         </ng-container>
     </div>
