@@ -1,29 +1,29 @@
 [
   {
     "Id": 1,
-    "ShortName": "UPS1",
+    "ShortName": "FAST",
     "Description": "Fastest delivery time",
     "DeliveryTime": "1-2 Days",
     "Price": 10
   },
   {
     "Id": 2,
-    "ShortName": "UPS2",
+    "ShortName": "STANDARD",
     "Description": "Get it within 5 days",
     "DeliveryTime": "2-5 Days",
     "Price": 5
   },
   {
     "Id": 3,
-    "ShortName": "Logistic Service",
-    "Description": "Price is based on the products in basket and your shipping distance.",
-    "DeliveryTime": "5-10 Days",
+    "ShortName": "LOGISTIC",
+    "Description": "For orders requiring logistics (pricing is per km)",
+    "DeliveryTime": "1-3 Days",
     "Price": 0.15
   },
   {
     "Id": 4,
     "ShortName": "FREE",
-    "Description": "Free! You get what you pay for",
+    "Description": "Free! But long delivery time",
     "DeliveryTime": "1-2 Weeks",
     "Price": 0
   }
