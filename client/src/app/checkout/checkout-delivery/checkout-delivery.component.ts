@@ -10,26 +10,28 @@ import { CheckoutService } from '../checkout.service';
   styleUrls: ['./checkout-delivery.component.scss']
 })
 export class CheckoutDeliveryComponent implements OnInit {
-getShippingDistance() {
-throw new Error('Method not implemented.');
-}
+  logisticOptionDisabled = false;
   @Input() checkoutForm?: FormGroup;
   deliveryMethods: DeliveryMethod[] = [];
 
-  constructor(private checkoutService: CheckoutService, private basketService: BasketService) {}
+  constructor(private checkoutService: CheckoutService, public basketService: BasketService) {}
 
   ngOnInit(): void {
     this.checkoutService.getDeliveryMethods().subscribe({
       next: dm => this.deliveryMethods = dm
-    })
+    });
+    
+    const basketId = this.basketService.getBasketId();
+    if (basketId) {
+      this.basketService.setOnlyLogistic(basketId).subscribe(isDisabled => {
+        this.logisticOptionDisabled = isDisabled;
+      });
+    }
   }
 
-  setShippingPrice(deliveryMethod: DeliveryMethod) {
-    
+  setShippingPrice(deliveryMethod: DeliveryMethod) {    
     this.basketService.setShippingPrice(deliveryMethod);
-
   }
 
   
-
 }

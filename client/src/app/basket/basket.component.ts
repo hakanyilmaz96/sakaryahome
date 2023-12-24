@@ -19,4 +19,5 @@ export class BasketComponent {
     this.basketService.removeItemFromBasket(event.id, event.quantity);
   }
 
+
 }

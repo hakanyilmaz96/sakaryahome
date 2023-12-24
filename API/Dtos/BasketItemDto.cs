@@ -26,5 +26,11 @@ namespace API.Dtos
 
         [Required]
         public string Type { get; set; }
+        
+        [Required]
+        public int Desi { get; set; }
+        
+        [Required]
+        public bool Logistic { get; set; }
     }
 }

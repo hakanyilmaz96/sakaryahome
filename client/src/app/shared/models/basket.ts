@@ -8,6 +8,8 @@ export interface BasketItem {
     pictureUrl: string;
     brand: string;
     type: string;
+    desi: number;
+    logistic: boolean;
 }
 
 export interface Basket {
@@ -24,5 +26,5 @@ export interface BasketTotals {
     shipping: number;
     subtotal: number;
     total: number;
-
+    desitotal: number;
 }

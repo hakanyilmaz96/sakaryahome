@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable, catchError, map, of } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Basket, BasketItem, BasketTotals } from '../shared/models/basket';
 import { DeliveryMethod } from '../shared/models/deliveryMethod';
@@ -41,7 +41,7 @@ export class BasketService {
       this.shipping = deliveryMethod.price;
       this.calculateTotals();
     }
-  }
+  } 
 
   getUserAddress() {
     return this.http.get<Address>(this.baseUrl + 'account/address');
@@ -54,6 +54,21 @@ export class BasketService {
         this.calculateTotals();
       }
     })
+  }
+
+  getBasketId(): string | null {
+    return localStorage.getItem('basket_id');
+  }
+
+  setOnlyLogistic(id: string) {
+    return this.http.get<Basket>(`${this.baseUrl}basket?id=${id}`).pipe(
+      map(basket => {
+        console.log('Gelen sepet:', basket);
+        const totalDesi = basket.items.reduce((sum, item) => sum + (item.desi * item.quantity), 0);
+        const hasLogisticItem = basket.items.some(item => item.logistic);
+        return totalDesi > 30 || hasLogisticItem;
+      })
+    );
   }
 
   setBasket(basket: Basket) {
@@ -91,6 +106,7 @@ export class BasketService {
     }
   }
 
+  
   deleteBasket(basket: Basket) {
     return this.http.delete(this.baseUrl + 'basket?id=' + basket.id).subscribe({
       next: () => {
@@ -129,19 +145,25 @@ export class BasketService {
       quantity: 0,
       pictureUrl: item.pictureUrl,
       brand: item.productBrand,
-      type: item.productType
+      type: item.productType,
+      desi: item.desi,
+      logistic: item.logistic
     }
   }
 
-  private calculateTotals() {
+  public calculateTotals() {
     const basket = this.getCurrentBasketValue();
     if (!basket) return;
     const subtotal = basket.items.reduce((a, b) => (b.price * b.quantity) + a, 0);
+    const desitotal = basket.items.reduce((a, b) => (b.desi * b.quantity) + a, 0);
     const total = subtotal + this.shipping;
-    this.basketTotalSource.next({shipping: this.shipping, total, subtotal});
+    this.basketTotalSource.next({shipping: this.shipping, total, subtotal, desitotal});
   }
+
 
   private isProduct(item: Product | BasketItem): item is Product {
     return (item as Product).productBrand !== undefined;
   }
+
+  
 }
