@@ -8,7 +8,7 @@ import { AccountService } from './account/account.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  title = 'Skinet';
+  title = 'SakaryaHome';
   
   constructor(private basketService: BasketService, private accountService: AccountService){}
   
