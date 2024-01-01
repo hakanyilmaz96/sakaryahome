@@ -14,6 +14,7 @@ namespace Core.Entities.OrderAggregate
             City = city;
             State = state;
             ZipCode = zipCode;
+
         }
 
         public string FirstName { get; set; }

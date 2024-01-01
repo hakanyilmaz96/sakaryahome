@@ -30,6 +30,12 @@
                 >{{buttonText}}</button>
             </div>
             <div class="row mt-4">
+                <h5>Desi: {{product.desi}}</h5>
+            </div>
+            <div *ngIf="product.logistic" class="row mt-4">
+                <p style="color: orangered;">This item can only shipped with Logistic Service</p>
+            </div>
+            <div class="row mt-4">
                 <h4>Description</h4>
                 <p>{{product.description}}</p>
             </div>

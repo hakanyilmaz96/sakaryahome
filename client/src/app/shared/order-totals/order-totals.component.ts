@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { BasketService } from 'src/app/basket/basket.service';
+import { DeliveryMethod } from '../models/deliveryMethod';
+import { OrdersService } from 'src/app/orders/orders.service';
+import { Order } from '../models/order';
 
 @Component({
   selector: 'app-order-totals',
@@ -8,5 +11,7 @@ import { BasketService } from 'src/app/basket/basket.service';
 })
 export class OrderTotalsComponent {
 
-  constructor (public basketService: BasketService){} 
+  constructor (public basketService: BasketService, public ordersService: OrdersService){} 
+  
+
 }

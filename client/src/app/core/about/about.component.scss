@@ -1,0 +1,14 @@
+.text-container {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 250px; /* içerik ve kenar çubuğu arasında boşluk sağlar */
+}
+
+img {
+    object-fit: cover;
+    height: 650px;
+    width: 100%;
+    padding: 0 250px; 
+    align-items: center;
+}

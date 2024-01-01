@@ -7,3 +7,10 @@ img {
     height: 800px;
     width: 100%;
 }
+
+.text-container {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 150px; /* içerik ve kenar çubuğu arasında boşluk sağlar */
+}

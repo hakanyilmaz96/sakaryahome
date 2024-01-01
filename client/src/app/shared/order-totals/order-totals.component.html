@@ -4,6 +4,9 @@
 
 <div class="p-4">
     <p class="fst-italic mb-4">Shipping costs will be calculated based on choices made during checkout</p>
+    <p class="fst-italic mb-4" style="color: orangered;">(
+        If the logistics option is selected, only the price of the products in the cart will be charged to the card. The
+        delivery fee must be paid upon delivery.)</p>
     <ul class="list-unstyled mb-4" *ngIf="(basketService.basketTotalSource$ | async) as totals">
         <li class="d-flex justify-content-between py-3 border-bottom">
             <strong class="text-muted">Order Subtotal</strong>
