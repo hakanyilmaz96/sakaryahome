@@ -16,7 +16,7 @@
                     class="form-check-input"
                     (click)="setShippingPrice(method)">
                 <label for="{{method.id}}" class="form-check-label ms-2 mb-3">
-                    <strong>{{method.shortName}} - {{method.price | currency}}</strong>
+                    <strong>{{method.shortName}} - {{method.price | currency:'TRY':'₺' }}</strong>
                     <br />
                     <span class="label-description">{{method.description}}</span><br>
                     <span class="label-description">{{method.deliveryTime}}</span>
@@ -38,7 +38,7 @@
                     class="form-check-input"
                     (click)="setShippingPrice(method)">
                 <label *ngIf="method.id === 3" for="{{method.id}}" class="form-check-label ms-2 mb-3">
-                    <strong>{{method.shortName}} - {{method.price | currency}}</strong>
+                    <strong>{{method.shortName}} - {{method.price | currency:'TRY':'₺' }}</strong>
                     <br />
                     <span class="label-description">{{method.description}}</span><br>
                     <span class="label-description">{{method.deliveryTime}}</span>

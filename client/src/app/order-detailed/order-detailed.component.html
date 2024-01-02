@@ -26,18 +26,18 @@
                                     <div class="p-2">
                                         <img src="{{item.pictureUrl}}" alt="{{item.productName}}" class="img-fluid"
                                             style="max-height: 50px">
-                                        <div class="ml-3 d-inline-block align-middle">
+                                        <div class="ml-3 d-inline-block align-middle ms-3">
                                             <h5 class="mb-0">
                                                 {{item.productName}}
                                             </h5>
                                         </div>
                                     </div>
                                 </th>
-                                <td class="align-middle"><strong>{{item.price | currency}}</strong></td>
+                                <td class="align-middle"><strong>{{item.price | currency:'TRY':'₺' }}</strong></td>
                                 <td class="align-middle">
                                     <span class="font-weight-bold px-2">{{item.quantity}}</span>
                                 </td>
-                                <td class="align-middle"><strong>{{item.price * item.quantity | currency}}</strong></td>
+                                <td class="align-middle"><strong>{{item.price * item.quantity | currency:'TRY':'₺' }}</strong></td>
                             </tr>
                         </tbody>
                     </table>
@@ -50,18 +50,19 @@
                 <ul class="list-unstyled mb-1">
                     <li class="d-flex justify-content-between py-3 border-bottom">
                         <strong class="text-muted">Order subtotal</strong>
-                        <strong>{{order.subtotal| currency}}</strong>
+                        <strong>{{order.subtotal| currency:'TRY':'₺' }}</strong>
                     </li>
                     <li class="d-flex justify-content-between py-3 border-bottom">
                         <strong class="text-muted">Shipping and handling</strong>
-                        <strong>{{order.shippingPrice | currency}}</strong>
+                        <strong>{{order.shippingPrice | currency:'TRY':'₺' }}</strong>
                     </li>
                     <li class="d-flex justify-content-between py-3 border-bottom">
                         <strong class="text-muted">Total</strong>
-                        <strong>{{order.total | currency}}</strong>
+                        <strong>{{order.total | currency:'TRY':'₺' }}</strong>
                     </li>
                 </ul>
             </div>
         </div>
     </div>
+    <br><br><br><br><br><br><br><br><br><br><br>
 </div>

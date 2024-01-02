@@ -1,18 +1,26 @@
 [
   {
     "Id": 1,
-    "Name": "Boards"
+    "Name": "Rough Construction Materials"
   },
   {
     "Id": 2,
-    "Name": "Hats"
+    "Name": "Paint and Decoration"
   },
   {
     "Id": 3,
-    "Name": "Boots"
+    "Name": "Insulation Materials"
   },
   {
     "Id": 4,
-    "Name": "Gloves"
+    "Name": "Timber"
+  },
+  {
+    "Id": 5,
+    "Name": "Construction Chemicals"
+  },
+  {
+    "Id": 6,
+    "Name": "Plates"
   }
 ]

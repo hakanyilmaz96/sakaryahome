@@ -1,6 +1,8 @@
 <div class="container mt-5">
-    <div *ngIf="(basketService.basketSource$ | async) === null">
-        <p>There are no items in your basket</p>
+
+    <div class="d-flex justify-content-center pt-4 mt-5" *ngIf="(basketService.basketSource$ | async) === null">
+        <h3>There are no items in your basket</h3>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
     </div>
 
     <ng-container *ngIf="(basketService.basketSource$ | async) as basket">

@@ -30,7 +30,7 @@
                         </div>
                     </div>
                 </th>
-                <td class="align-middle"><strong>{{item.price | currency}}</strong></td>
+                <td class="align-middle"><strong>{{item.price | currency:'TRY':'₺' }}</strong></td>
                 <td class="align-middle">
                     <div class="d-flex align-items-center" 
                         [class.justify-content-center]="!isBasket" >
@@ -45,7 +45,7 @@
                         ></i>
                     </div>
                 </td>
-                <td class="align-middle"><strong>{{item.price * item.quantity | currency}}</strong></td>
+                <td class="align-middle"><strong>{{item.price * item.quantity | currency:'TRY':'₺' }}</strong></td>
                 <td class="align-middle" *ngIf="isBasket">
                     <a class="text-danger">
                         <i
