@@ -1,20 +1,20 @@
 <div class="container">
     <div class="row" *ngIf="types.length > 0 && brands.length > 0">
         <section class="col-3 mb-5">
-            <h5 class="text-warning ms-3 my-4">Sort</h5>
+            <h5 class="ms-3 my-4" style="color: orangered;">Sort</h5>
             <select class="form-select mb-4" (change)="onSortSelected($event)" style="cursor: pointer;">
                 <option *ngFor="let sort of sortOptions" [value]="sort.value">
                     {{sort.name}}
                 </option>
 
             </select>
-            <h5 class="text-warning ms-3 my-3">Brands</h5>
+            <h5 class=" ms-3 my-3" style="color: orangered;">Brands</h5>
             <ul class="list-group">
                 <li class="list-group-item" style="cursor: pointer;" *ngFor="let brand of brands" [class.active]="brand.id === shopParams.brandId"
                     [value]="brand.id" (click)="onBrandSelected(brand.id)">{{brand.name}}</li>
-
+                <br>
             </ul>
-            <h5 class="text-warning ms-3 my-3">Types</h5>
+            <h5 class="ms-3 my-3" style="color: orangered;">Types</h5>
             <ul class="list-group">
                 <li class="list-group-item" style="cursor: pointer;" *ngFor="let type of types" [class.active]="type.id === shopParams.typeId"
                     [value]="type.id" (click)="onTypeSelected(type.id)">{{type.name}}</li>
@@ -29,7 +29,7 @@
                     [pageNumber]="shopParams.pageNumber"
                     [pageSize]="shopParams.pageSize"
                 ></app-paging-header>
-                <div class="d-flex mt-2">
+                <div class="d-flex mt-2 mb-2">
                     <input (keyup.enter)="onSearch()" type="text" placeholder="Search" class="form-control me-2" #search>
                     <button (click)="onSearch()" class="btn btn-outline-primary mx-2">Search</button>
                     <button (click)="onReset()" class="btn btn-outline-success">Reset</button>
