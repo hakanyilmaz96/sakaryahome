@@ -11,7 +11,7 @@ export class BusyService {
   busy() {
     this.busyRequestCount++;
     this.spinnerService.show(undefined,{
-      type:'timer',
+      type:'square-jelly-box',
       bdColor: 'rgba(255,255,255,0.7)',
       color: '#333333'
 

@@ -6,6 +6,7 @@
             </h6>
             
         </div>
+        
         <!-- Eğer logisticOptionDisabled false ise, tüm yöntemleri göster -->
         <ng-container *ngIf="!logisticOptionDisabled">
             <div class="col-6 form-group" *ngFor="let method of deliveryMethods">
@@ -23,6 +24,7 @@
                 </label>
             </div>
         </ng-container>
+        
         <!-- Eğer logisticOptionDisabled true ise ve yöntemin id'si 3 ise, sadece bu yöntemi göster -->
         <ng-container *ngIf="logisticOptionDisabled">
             <div>

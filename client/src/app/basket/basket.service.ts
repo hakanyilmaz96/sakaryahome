@@ -38,6 +38,7 @@ export class BasketService {
   setShippingPrice(deliveryMethod: DeliveryMethod) {
     const basket = this.getCurrentBasketValue();
     if (basket) {
+      //Delivery method 3 seçildiyse shipping price'ı --> delivery price *= distance şeklinde güncelle
       if (deliveryMethod.id === 3) {
         this.accountService.getUserAddress().subscribe(address => {
           if (address) {
@@ -51,6 +52,7 @@ export class BasketService {
         
       } 
 
+      //Delivery method diğerleriyse direkt shipping price = delivery price
       else {
         basket.shippingPrice = deliveryMethod.price;
         basket.deliveryMethodId = deliveryMethod.id;
